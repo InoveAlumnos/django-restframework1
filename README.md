@@ -5,16 +5,8 @@ Web: [Inove](http://inove.com.ar)
 
 ---
 
-# Django - Modelos y Administrador
+# Django - Django REST FRAMEWORK 1
 En este repositorio encontrarán los siguientes archivos:
-
-__Ejemplos que el profesor mostrará en clase__\
-
-* **dockerfile** (Para generar la imagen de Docker)
-* **docker-compose.yml** (Para configurar el contenedor de Docker)
-* **requirements.txt** (Que contiene las librerías que vamos a estar usando)
-* **/marvel** (Directorio raíz de nuestra aplicación)
-* **/database** (Directorio de nuestra base de datos)
 
 ---
 

@@ -6,7 +6,6 @@ Web: [Inove](http://inove.com.ar)
 ---
 
 # Django - Django REST FRAMEWORK 1
-En este repositorio encontrarán los siguientes archivos:
 
 ---
 

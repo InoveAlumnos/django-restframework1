@@ -4,7 +4,7 @@ info@inove.com.ar\
 Web: [Inove](http://inove.com.ar)
 
 ---
-# Tarea: Django - Modelos y Administrador
+# Tarea: Django - Django REST FRAMEWORK 1
 
 Al realizar esta tarea pondremos en práctica los conocimientos adquiridos en clase.
 Una vez finalizada, el alumno debe subir el enlace a su repositorio "forkeado" el foro de tarea correspondiente -NO SE ADMITE LA DEVOLUCIÓN POR OTRO CANAL SALVO SE ESPECIFIQUE LO CONTRARIO- 

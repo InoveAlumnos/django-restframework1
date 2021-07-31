@@ -132,7 +132,8 @@ dmypy.json
 .pyre/
 
 # bdd excludes
-/database
+/ejercicios_practica/database
+/ejemplo_clase/database
 
 # Image excludes
 images/

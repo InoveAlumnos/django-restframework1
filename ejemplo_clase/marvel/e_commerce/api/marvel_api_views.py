@@ -107,7 +107,7 @@ def get_comics(request):
         </td>
         <td><h2>U$S{price}</h2></td>
         <td>
-            <form action="http://localhost:8000/e-commerce/purchased_item/" method="post" , style ="visibility: {visibility};">
+            <form action="/e-commerce/purchased_item/" method="post" , style ="visibility: {visibility};">
                 <label for="qty"><h3>Enter Quantity:</h3></label>
                 <input type="number" id="qty" name="qty" min="0" max="15">
                 <input type="submit" value="Buy" >

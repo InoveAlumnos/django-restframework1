@@ -16,7 +16,7 @@ def return_request_data(request):
     Esta función nos permite realizar una petición de tipo POST,
     \n Retorna el valor del parámetro "mi_parametro" enviada en la petición.
     '''
-    template = f'<h1>{request.data.get("mi_parametro")}</h1>'
+    template = f'<h1>{request.GET.get("mi_parametro")}</h1>'
     # Tambien podemos llamar al método dentro de request, haciendo:
     # request.POST.get('alguna_key')
     print(template)

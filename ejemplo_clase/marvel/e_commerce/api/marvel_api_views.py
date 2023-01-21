@@ -49,6 +49,7 @@ def get_comics(request):
     else:
         offset = request.GET.get('offset')
     if request.GET.get('limit') == None or request.GET['limit'].isdigit() == False:
+    #  if not request.GET.get('limit') or not request.GET['limit'].isdigit():
         limit = 15
     else:
         limit = request.GET.get('limit')
@@ -64,7 +65,7 @@ def get_comics(request):
     res = requests.get(URL_BASE+ENDPOINT, params=params)
     comics = json.loads(res.text)
 
-    # Obtenemos la lista de comics:
+    # Obtenemos la lista de comics del json:
     comics_list = comics.get('data').get('results')
 
     # Filtramos la lista de comics y nos quedamos con lo que nos interesa:
@@ -107,7 +108,7 @@ def get_comics(request):
         </td>
         <td><h2>U$S{price}</h2></td>
         <td>
-            <form action="/e-commerce/purchased_item/" method="post" , style ="visibility: {visibility};">
+            <form action="/e-commerce/purchased-item/" method="post" , style ="visibility: {visibility};">
                 <label for="qty"><h3>Enter Quantity:</h3></label>
                 <input type="number" id="qty" name="qty" min="0" max="15">
                 <input type="submit" value="Buy" >
@@ -143,23 +144,23 @@ def purchased_item(request):
     qty = request.POST.get('qty')
     id = request.POST.get('id')
 
-    # TODO: Construimos la Query:
-    # Verificamos que el comic no se encuentra en nuestro stock:
-
-    queryset = Comic.objects.filter(marvel_id=id)
-
-    if len(queryset.values_list()) == 0 :
-        # Si el resultado nos trae una lista vacía, creamos un nuevo registro:
-        item = Comic(title=title, description=description, price=price,
-                    stock_qty=qty, picture=thumbnail, marvel_id=id)
-        print(CIAN,queryset)
-        item.save()
-    else:
-        # Si el comic está registrado, actualizamos su cantidad:
-        comic = Comic.objects.get(marvel_id=id)
-        actual_stock = comic.stock_qty
-        actual_stock += int(qty)
-        Comic.objects.filter(marvel_id=id).update(stock_qty=actual_stock)
+    # Verificamos si el comic no se encuentra en nuestro stock.
+    # Para eso hacemos uso del método ".get_or_create()".
+    # En caso de existir, actualizamos su cantidad.
+    _comic, _created = Comic.objects.get_or_create(
+        marvel_id=id,
+        defaults={
+            'title': title,
+            'description': description,
+            'price': price,
+            'stock_qty': qty,
+            'picture': thumbnail,
+            'marvel_id': id
+        }
+    )
+    if not _created:
+        _comic.stock_qty += int(qty)
+        _comic.save()
 
     # NOTE: Construimos la respuesta
     # Calculamos el precio total:

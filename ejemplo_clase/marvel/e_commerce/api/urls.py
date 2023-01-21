@@ -5,7 +5,7 @@ from e_commerce.api.marvel_api_views import *
 urlpatterns = [
     path('hello-world/',hello_world),
     path('request-data/',return_request_data),
-    path('get_comics/',get_comics),
-    path('purchased_item/',purchased_item),
+    path('get-comics/',get_comics),
+    path('purchased-item/',purchased_item),
 ]
  

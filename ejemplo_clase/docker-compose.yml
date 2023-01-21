@@ -38,7 +38,11 @@ services:
 
   modulo_4:
     # build es el lugar desde donde toma los archivos para generar la imagen.
-    build: .
+    # Toma como contexto de trabajo el directorio donde está el docker-compose.yml (.)
+    # y busca el archivo "dockerfile".
+    build:
+      context: .
+      dockerfile: dockerfile
     # Imágen a utilizar:
     image: modulo_4a
     # Nombre del container:
@@ -57,5 +61,6 @@ services:
     # Control de consola:
     stdin_open: true
     tty: true
-    
-    command: python marvel/manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db

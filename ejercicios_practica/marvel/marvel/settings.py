@@ -30,16 +30,42 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+# Apps que se agregan automáticamente al crear un proyecto en Django.
+BASE_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Local apps: Acá ponemos el nombre de las carpetas de nuestras aplicaciónes
-    'e_commerce'
 ]
+
+# Acá van las apps de 3ros que necesitamos agregar para que Django las encuentre.
+THIRD_APPS = [
+    'rest_framework',
+    'rest_framework.authtoken',
+]
+
+# Acá van las apps que creamos nosotros.
+LOCAL_APPS = [
+    'e_commerce',
+]
+
+INSTALLED_APPS = BASE_APPS + THIRD_APPS + LOCAL_APPS
+
+# INSTALLED_APPS = [
+#     'django.contrib.admin',
+#     'django.contrib.auth',
+#     'django.contrib.contenttypes',
+#     'django.contrib.sessions',
+#     'django.contrib.messages',
+#     'django.contrib.staticfiles',
+#     # Local apps: Acá ponemos el nombre de las carpetas de nuestras aplicaciones
+#     'e_commerce',
+#     # Third party apps: acá vamos agregando las aplicaciones de terceros, extensiones de Django.
+#     'rest_framework',
+#     'rest_framework.authtoken',
+# ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,7 +110,8 @@ WSGI_APPLICATION = 'marvel.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2' --> En desuso.
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'marvel_db',        # POSTGRES_DB
         'USER' : 'inove_user',      # POSTGRES_USER
         'PASSWORD' : '123Marvel!',  # POSTGRES_PASSWORD

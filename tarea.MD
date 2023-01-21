@@ -42,4 +42,4 @@ Recomendamos utilizar un formulario con dos botones de submit que envíen estos 
 ---
 
 ## ¿Dudas?
-Ante cualquier inquietud, debe referirse a los canales especificados para su trato en inove.
+Ante cualquier inquietud, debe referirse a los canales especificados para su trato en Inove.

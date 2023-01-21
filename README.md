@@ -17,14 +17,12 @@ Siempre en el mismo directorio del archivo *docker-compose.yml*
 
 ### 2. Correr la línea de comandos dentro del contenedor
 
-**$** `docker exec -i -t modulo_3 bash`
+**$** `docker exec -i -t modulo_4a bash`
 
 Nos va a devolver a nuestra consola, una consola dentro del contenedor de software.
 
+Automáticamente vamos a estar parados en el siguiente directorio: `/opt/back_end/marvel`. 
 
-Una vez dentro ejecutamos el comando:
-
-**$** `cd /opt/back_end/marvel` 
 
 ### 3. Iniciar el servidor
 (Siempre dentro de nuestro contenedor de software - Comando N°2)  
@@ -36,7 +34,17 @@ Tenemos que ir a la carpeta donde se encuentra el archivo *manage.py*
 
 **$** `python manage.py makemigrations`
 
-**$** `python manage.py migrate` 
+**$** `python manage.py migrate`
+
+#### NOTA: Si se quiere sólo realizar las migracions correspondiente a una determinada aplicación del proyecto, podemos ejecutar los siguientes comandos:  
+
+**$** `python manage.py makemigrations nombre_aplicación`
+
+  - Ejemplo: **$** `python manage.py makemigrations e_commerce`
+
+**$** `python manage.py migrate nombre_aplicación` 
+
+  - Ejemplo: **$** `python manage.py migrate e_commerce`
 
 ### 5. Creamos un super usuario:  
 
@@ -48,7 +56,7 @@ Tan solo con el comando `ctrl + c`  se detiene la ejecución de nuestro contened
 
 Una forma alternativa es con el siguiente comando en la terminal del host:
 
-**$** `docker stop modulo_3`  
+**$** `docker stop modulo_4a`  
 
 O también puede ser con docker-compose:
 Tenemos que estar en la carpeta que contiene el archivo *docker-compose.yml* y hacer:

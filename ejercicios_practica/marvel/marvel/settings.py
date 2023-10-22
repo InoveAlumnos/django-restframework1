@@ -40,16 +40,12 @@ BASE_APPS = [
     'django.contrib.staticfiles',
 ]
 
-# Acá van las apps de 3ros que necesitamos agregar para que Django las encuentre.
-THIRD_APPS = [
-    'rest_framework',
-    'rest_framework.authtoken',
-]
+# Acá van las apps de 3ros que necesitamos agregar
+# para que Django las encuentre.
+THIRD_APPS = []
 
 # Acá van las apps que creamos nosotros.
-LOCAL_APPS = [
-    'e_commerce',
-]
+LOCAL_APPS = ['e_commerce']
 
 INSTALLED_APPS = BASE_APPS + THIRD_APPS + LOCAL_APPS
 
@@ -60,11 +56,11 @@ INSTALLED_APPS = BASE_APPS + THIRD_APPS + LOCAL_APPS
 #     'django.contrib.sessions',
 #     'django.contrib.messages',
 #     'django.contrib.staticfiles',
-#     # Local apps: Acá ponemos el nombre de las carpetas de nuestras aplicaciones
+#     # Local apps: Acá ponemos el nombre de las carpetas
+#     # de nuestras aplicaciones.
 #     'e_commerce',
-#     # Third party apps: acá vamos agregando las aplicaciones de terceros, extensiones de Django.
-#     'rest_framework',
-#     'rest_framework.authtoken',
+#     # Third party apps: acá vamos agregando las aplicaciones de terceros,
+#     # extensiones de Django.
 # ]
 
 MIDDLEWARE = [

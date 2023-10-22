@@ -1,23 +1,12 @@
 # Import models:
 from e_commerce.models import *
+from e_commerce.utils import MARVEL_DICT, get_marvel_params
 
 from marvel.settings import VERDE, CIAN, AMARILLO
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import requests
 import json
-import hashlib
-
-# NOTE: Declaramos las variables que tienen que ver con la API KEY de Marvel:
-
-PUBLIC_KEY = '58ee40376f7c10e99f440f5e3abd2caa'
-PRIVATE_KEY = '2c0373e00d85edb4560f68ddc2094014e8694f90'
-TS = 1
-TO_HASH = str(TS)+PRIVATE_KEY+PUBLIC_KEY
-HASHED = hashlib.md5(TO_HASH.encode())
-URL_BASE = 'http://gateway.marvel.com/v1/public/'
-ENDPOINT = 'comics'
-PARAMS = dict(ts=TS, apikey=PUBLIC_KEY, hash=HASHED.hexdigest())
 
 
 @csrf_exempt
@@ -58,11 +47,12 @@ def get_comics(request):
     limit = int(limit)
 
     # Realizamos el request:
-    aditional_params = {'limit': limit, 'offset': offset}
-    params = PARAMS
-    params.update(aditional_params)
-    # NOTE: A los parametros de hash, api key y demás, sumamos limit y offset para paginación.
-    res = requests.get(URL_BASE+ENDPOINT, params=params)
+    params = get_marvel_params()
+    params['limit'] = limit
+    params['offset'] = offset
+    # NOTE: A los parametros de hash, api key y demás,
+    # sumamos limit y offset para paginación.
+    res = requests.get(MARVEL_DICT.get('URL'), params=params)
     comics = json.loads(res.text)
 
     # Obtenemos la lista de comics del json:
@@ -130,6 +120,7 @@ def get_comics(request):
     f.write(template)
     f.close
     return HttpResponse(template)
+
 
 @csrf_exempt
 def purchased_item(request):

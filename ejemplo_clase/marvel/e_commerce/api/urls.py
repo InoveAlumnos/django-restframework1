@@ -1,11 +1,9 @@
 from django.urls import path
-from e_commerce.api.hello_world_api import *
-from e_commerce.api.marvel_api_views import *
+from e_commerce.api.views import *
+
 
 urlpatterns = [
-    path('hello-world/',hello_world),
-    path('request-data/',return_request_data),
-    path('get-comics/',get_comics),
-    path('purchased-item/',purchased_item),
+    path('comic-list/', comic_list_api_view),
+    path('comic-retrieve/', comic_retrieve_api_view),
+    path('comic-create/', comic_create_api_view)
 ]
- 

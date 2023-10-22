@@ -96,6 +96,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'marvel.wsgi.application'
 
+# NOTE: Configuración general para DRF.
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ]
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

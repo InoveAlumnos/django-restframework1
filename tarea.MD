@@ -30,14 +30,22 @@ También vea cómo se realizaron las APIs de la aplicación e_commerce, los arch
 En ejercicios_practica se encuentra el proyecto avanzado hasta la clase 3, debe incluir los cambios necesarios para incluir DRF en el proyecto (declararlos en settings.py etc;) puede guiarse por el ejemplo de clase para ello.
 
 ### 5. Agregue la carpeta "api" a su aplicación e_commerce.
-Agregue la carpeta "api" a su aplicación e_commerce al igual que en el ejemplo de clase, y desarrolle al menos 3 vistas de API con decoradores. Las vistas deben ser de tipo GET y POST. Luego debe asignarles las URLs para darles acceso. Proponga una lógica de negocio para cada una de ellas (basta con un print de algún parámetro pasado por request)
+Agregue la carpeta "api" a su aplicación e_commerce al igual que en el ejemplo de clase, y desarrolle las siguientes 3 vistas de API con decoradores (las cuales deben ser de tipo GET y POST):
 
-### 6. Copie el archivo "marvel_api_views.py" a su carpeta de api.
-Copie el archivo "marvel_api_views.py" a su carpeta de api, trate de entender la lógica de negocio de ambas vistas (get_comics, y purchased_item) y haga que funcione en el proyecto de práctica.
+- Una para LISTAR comics (Al asignarle una URL en el campo name nombrela "comic_list_api_view")
 
-### 7. Incorpore el paginado en la vista "get_comics".
-Incorpore el paginado en la vista "get_comics", de manera que por medio de una petición de tipo GET se envíen los parámetros "limit" y "offset" (es posible obviar el parámetro "limit"). 
-Recomendamos utilizar un formulario con dos botones de submit que envíen estos parámetros al final de la página.
+- Una para OBTENER un comic por "id" (Al asignarle una URL en el campo name nombrela "comic_retrieve_api_view")
+
+- Una para CREAR un comic (Al asignarle una URL en el campo name nombrela "comic_create_api_view")
+
+
+### 6. Cree una API view que liste comics filtrando por precio.
+Desarrolle una vista de api la cual liste comics filtrandolos de modo que muestre solamente aquellos con precio mayor o igual a 5.00.
+
+
+### 7. Incluya alguna API view creada por usted.
+Imagine alguna funcionalidad adicional que le gustaría proveer al usuario y desarrolle su propia vista de api a dichos fines.
+Por ejemplo, listar determinados comics en virtud de algún filtro.
 
 ---
 

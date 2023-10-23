@@ -41,6 +41,7 @@ Agregue la carpeta "api" a su aplicación e_commerce al igual que en el ejemplo 
 
 ### 6. Cree una API view que liste comics filtrando por precio.
 Desarrolle una vista de api la cual liste comics filtrandolos de modo que muestre solamente aquellos con precio mayor o igual a 5.00.
+Nombrela "comic_list_filtered_api_view".
 
 
 ### 7. Incluya alguna API view creada por usted.

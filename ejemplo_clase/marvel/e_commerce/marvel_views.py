@@ -1,12 +1,13 @@
-# Import models:
-from e_commerce.models import *
-from e_commerce.utils import MARVEL_DICT, get_marvel_params
-
-from marvel.settings import VERDE, CIAN, AMARILLO
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
 import requests
 import json
+
+from django.conf import settings
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+
+from e_commerce.models import Comic
+from e_commerce.utils import MARVEL_DICT, get_marvel_params
+
 
 
 @csrf_exempt
@@ -184,5 +185,5 @@ def purchased_item(request):
     </table>
     '''
     # Imprimimos por consola el HTML construido (se puede probar en https://codepen.io/):
-    print(VERDE+template)
+    print(settings.VERDE + template)
     return HttpResponse(template)

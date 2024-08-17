@@ -32,11 +32,11 @@ En ejercicios_practica se encuentra el proyecto avanzado hasta la clase 3, debe 
 ### 5. Agregue la carpeta "api" a su aplicación e_commerce.
 Agregue la carpeta "api" a su aplicación e_commerce al igual que en el ejemplo de clase, y desarrolle las siguientes 3 vistas de API con decoradores (las cuales deben ser de tipo GET y POST):
 
-- Una para LISTAR comics (Al asignarle una URL en el campo name nombrela "comic_list_api_view")
+- Una para LISTAR comics (Al asignarle una URL en el campo name nombrela "comic_list_api_view", tal cual los ejemplos de clase)
 
-- Una para OBTENER un comic por "id" (Al asignarle una URL en el campo name nombrela "comic_retrieve_api_view")
+- Una para OBTENER un comic por "id" (Al asignarle una URL en el campo name nombrela "comic_retrieve_api_view", tal cual los ejemplos de clase)
 
-- Una para CREAR un comic (Al asignarle una URL en el campo name nombrela "comic_create_api_view")
+- Una para CREAR un comic (Al asignarle una URL en el campo name nombrela "comic_create_api_view", tal cual los ejemplos de clase)
 
 
 ### 6. Cree una API view que liste comics filtrando por precio.
